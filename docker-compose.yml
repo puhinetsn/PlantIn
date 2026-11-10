@@ -1,0 +1,25 @@
+services:
+  postgres:
+    # see https://hub.docker.com/_/postgres for list of postgres image versions on docker hub
+    #image: postgres:latest # To download the latest image
+    #image: postgres:17.4-alpine # To download a specific version, here the version 17.4 of Postgresql under an alpine linux distribution
+    image: postgres:18.4-alpine # To download a specific version, here the version 17.4 of Postgresql
+    container_name: plant_in
+    volumes:
+      - postgresql_data:/var/lib/postgresql
+    environment:
+      POSTGRES_DB: plant_in_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432" # HOST_PORT:CONTAINER_PORT
+    networks:
+      - postgres_network
+
+volumes:
+  postgresql_data:
+    driver: local
+
+networks:
+  postgres_network:
+    driver: bridge
