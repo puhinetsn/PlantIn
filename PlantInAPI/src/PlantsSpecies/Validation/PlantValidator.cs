@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using PlantInAPI.src.PlantsSpecies.Models;
+using PlantInAPI.src.PlantsSpecies.DTOs;
 
 namespace PlantInAPI.src.PlantsSpecies.Validation
 {
-    public class PlantValidator: AbstractValidator<PlantSpecies>
+    public class PlantValidator: AbstractValidator<PlantRequestDTO>
     {
         public void CustomerValidator()
         {
