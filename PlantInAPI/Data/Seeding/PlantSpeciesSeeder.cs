@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PlantInAPI.src.PlantsSpecies.Models;
 
-namespace PlantInAPI.Data
+namespace PlantInAPI.Data.Seeding
 {
-    public class PlantSpeciesSeeder
+    public class PlantSpeciesSeeder: IEntitySeeder
     {
         public async Task SeedAsync(DbContext context, CancellationToken ct = default)
         {
