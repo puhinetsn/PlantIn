@@ -47,12 +47,46 @@ namespace PlantInAPI.Data.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
+                    b.Property<int>("PotSize")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Soil")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<string>("Sunlight")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<int>("Temperature")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("ToxicToCats")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("ToxicToDogs")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("ToxicToHumans")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Toxicity")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.PrimitiveCollection<string[]>("TypicalProblems")
+                        .IsRequired()
+                        .HasColumnType("text[]");
+
                     b.HasKey("Id");
 
                     b.HasIndex("LatinName")
                         .IsUnique();
 
-                    b.ToTable("PlantSpecies", (string)null);
+                    b.ToTable("PlantSpecies");
                 });
 #pragma warning restore 612, 618
         }

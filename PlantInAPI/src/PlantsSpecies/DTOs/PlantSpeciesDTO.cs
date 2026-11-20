@@ -1,4 +1,6 @@
-﻿namespace PlantInAPI.src.PlantsSpecies.DTOs
+﻿using PlantInAPI.src.PlantsSpecies.Models;
+
+namespace PlantInAPI.src.PlantsSpecies.DTOs
 {
     public record PlantSpeciesDTO
     (
@@ -6,6 +8,15 @@
         string CommonName,
         string LatinName,
         string? AlternativeNames,
-        string? Description
+        string? Description,
+        ToxicityLevel Toxicity,
+        SunlightLevel Sunlight,
+        bool ToxicToHumans,
+        bool ToxicToCats,
+        bool ToxicToDogs,
+        int PotSize,
+        string Soil,
+        int Temperature,
+        string[] TypicalProblems
     );
 }

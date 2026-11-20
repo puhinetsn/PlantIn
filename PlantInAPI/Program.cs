@@ -1,9 +1,5 @@
-using FluentValidation;
 using PlantInAPI.Data;
 using PlantInAPI.src.PlantsSpecies;
-using PlantInAPI.src.PlantsSpecies.Repositories;
-using PlantInAPI.src.PlantsSpecies.Service;
-using PlantInAPI.src.PlantsSpecies.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
