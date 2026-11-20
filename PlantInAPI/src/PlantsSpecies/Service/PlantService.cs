@@ -2,6 +2,7 @@
 using PlantInAPI.src.PlantsSpecies.DTOs;
 using PlantInAPI.src.PlantsSpecies.Models;
 using PlantInAPI.src.PlantsSpecies.Repositories;
+using System.Security.AccessControl;
 
 namespace PlantInAPI.src.PlantsSpecies.Service
 {
@@ -18,7 +19,16 @@ namespace PlantInAPI.src.PlantsSpecies.Service
                 CommonName = plantDto.CommonName,
                 LatinName = plantDto.LatinName,
                 AlternativeNames = plantDto.AlternativeNames,
-                Description = plantDto.Description
+                Description = plantDto.Description,
+                Toxicity = plantDto.Toxicity,
+                Sunlight = plantDto.Sunlight,
+                ToxicToHumans = plantDto.ToxicToHumans,
+                ToxicToCats = plantDto.ToxicToCats,
+                ToxicToDogs = plantDto.ToxicToDogs,
+                PotSize = plantDto.PotSize,
+                Soil = plantDto.Soil,
+                Temperature = plantDto.Temperature,
+                TypicalProblems = plantDto.TypicalProblems
             };
 
             await plantRepo.AddPlant(plant);
@@ -36,7 +46,16 @@ namespace PlantInAPI.src.PlantsSpecies.Service
                 p.CommonName,
                 p.LatinName,
                 p.AlternativeNames,
-                p.Description
+                p.Description,
+                p.Toxicity,
+                p.Sunlight,
+                p.ToxicToHumans,
+                p.ToxicToCats,
+                p.ToxicToDogs,
+                p.PotSize,
+                p.Soil,
+                p.Temperature,
+                p.TypicalProblems
             ));
         }
 
@@ -61,6 +80,15 @@ namespace PlantInAPI.src.PlantsSpecies.Service
             foundPlant.LatinName = plant.LatinName;
             foundPlant.AlternativeNames = plant.AlternativeNames;
             foundPlant.Description = plant.Description;
+            foundPlant.Toxicity = plant.Toxicity;
+            foundPlant.Sunlight = plant.Sunlight;
+            foundPlant.ToxicToHumans = plant.ToxicToHumans;
+            foundPlant.ToxicToCats = plant.ToxicToCats;
+            foundPlant.ToxicToDogs = plant.ToxicToDogs;
+            foundPlant.PotSize = plant.PotSize;
+            foundPlant.Soil = plant.Soil;
+            foundPlant.Temperature = plant.Temperature;
+            foundPlant.TypicalProblems = plant.TypicalProblems;
 
             await plantRepo.UpdatePlant(id, foundPlant);
         }
