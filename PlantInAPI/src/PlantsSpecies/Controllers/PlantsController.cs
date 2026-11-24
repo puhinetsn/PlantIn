@@ -14,7 +14,6 @@ namespace PlantInAPI.src.PlantsSpecies.Controllers
         private readonly IValidator<PlantRequestDTO> validator;
 
         public PlantsController(IPlantSpeciesService plantService, IValidator<PlantRequestDTO> plantValidator) {
-            Console.WriteLine("Controller constructor");
             plantServ = plantService;
             validator = plantValidator;
         } 
