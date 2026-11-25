@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PlantInAPI.Data;
+using PlantInAPI.src.User.DTOs;
 using PlantInAPI.src.User.Models;
 
 namespace PlantInAPI.src.User.Repositories
@@ -12,6 +13,16 @@ namespace PlantInAPI.src.User.Repositories
         {
             await plantDB.Users.AddAsync(newUser);
             await plantDB.SaveChangesAsync();
+        }
+
+        public async Task<UserModel> LogIn(UserLoginRequestDTO userData)
+        {
+            var email = userData.Email.Trim().ToLowerInvariant();
+
+            var user = await plantDB.Users
+                .AsNoTracking()
+                .SingleOrDefaultAsync(u => u.Email == email);
+            return user;
         }
     }
 }

@@ -30,5 +30,12 @@ namespace PlantInAPI.src.User.Services
 
             return newUser;
         }
+
+        public async Task<UserModel> LogInAsync(UserLoginRequestDTO userDto)
+        {
+            var user = await usersRepo.LogIn(userDto);
+
+            return user;
+        }
     }
 }

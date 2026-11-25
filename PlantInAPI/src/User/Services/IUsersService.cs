@@ -6,5 +6,7 @@ namespace PlantInAPI.src.User.Services
     public interface IUsersService
     {
         Task<UserModel> AddUserAsync(UserCreateRequestDTO userDto);
+        Task<UserModel> LogInAsync(UserLoginRequestDTO userDto);
+
     }
 }
