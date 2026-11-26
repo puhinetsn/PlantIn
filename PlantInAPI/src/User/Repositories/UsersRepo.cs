@@ -24,5 +24,28 @@ namespace PlantInAPI.src.User.Repositories
                 .SingleOrDefaultAsync(u => u.Email == email);
             return user;
         }
+
+        public async Task<bool> FindUser(string email)
+        {
+            return await plantDB.Users.AnyAsync(u => u.Email == email);
+            
+        }
+
+        public async Task<string> AddUserRefreshToken(UserRefreshTokens userTokenData)
+        {
+           await plantDB.UserRefreshTokens.AddAsync(userTokenData);
+           await plantDB.SaveChangesAsync();
+           return userTokenData.RefreshToken;
+        }
+
+        public async Task<UserRefreshTokens> FindUserRefreshToken(Guid id)
+        {
+            return await plantDB.UserRefreshTokens.FindAsync(id);
+        }
+
+        public async Task<UserModel> FindUserById(Guid id)
+        {
+            return await plantDB.Users.FindAsync(id);
+        }
     }
 }

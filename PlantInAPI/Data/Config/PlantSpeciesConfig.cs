@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PlantInAPI.src.PlantsSpecies.Models;
 
-namespace PlantInAPI.Data
+namespace PlantInAPI.Data.Config
 {
     public class PlantSpeciesConfig
     {

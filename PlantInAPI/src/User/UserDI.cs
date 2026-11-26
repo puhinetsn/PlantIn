@@ -11,6 +11,7 @@ namespace PlantInAPI.src.User
         {
             services.AddScoped<IUsersRepo, UsersRepo>();
             services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IAuthService, AuthService>();
             services.AddValidatorsFromAssemblyContaining<UserValidator>();
 
             return services;

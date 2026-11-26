@@ -9,7 +9,7 @@ namespace PlantInAPI.Data
     {
         public DbSet<PlantSpecies> PlantSpecies => Set<PlantSpecies>();
         public DbSet<UserModel> Users => Set<UserModel>();
-
+        public DbSet<UserRefreshTokens> UserRefreshTokens => Set<UserRefreshTokens>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -89,7 +89,7 @@ namespace PlantInAPI.Data.Migrations
                     b.ToTable("PlantSpecies");
                 });
 
-            modelBuilder.Entity("PlantInAPI.src.User.Models.User", b =>
+            modelBuilder.Entity("PlantInAPI.src.User.Models.UserModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -115,6 +115,12 @@ namespace PlantInAPI.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("RefreshTokenExpiryTime")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int>("StreakCount")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
@@ -131,6 +137,26 @@ namespace PlantInAPI.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("PlantInAPI.src.User.Models.UserRefreshTokens", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.Property<string>("RefreshToken")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)")
+                        .HasColumnName("refresh_token");
+
+                    b.Property<DateTime?>("RefreshTokenExpiryTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("refresh_token_expiry_time");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("UserRefreshTokens", (string)null);
                 });
 #pragma warning restore 612, 618
         }

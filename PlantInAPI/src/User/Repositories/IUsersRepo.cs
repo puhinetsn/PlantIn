@@ -7,5 +7,10 @@ namespace PlantInAPI.src.User.Repositories
     {
         Task Register(UserModel newUser);
         Task<UserModel> LogIn(UserLoginRequestDTO userData);
+        Task<UserModel> FindUserById(Guid id);
+        Task<bool> FindUser(string email);
+        Task<UserRefreshTokens> FindUserRefreshToken(Guid id);
+        Task<string> AddUserRefreshToken(UserRefreshTokens userTokenData);
+
     }
 }

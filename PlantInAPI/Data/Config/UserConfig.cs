@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PlantInAPI.src.User.Models;
 
-namespace PlantInAPI.Data
+namespace PlantInAPI.Data.Config
 {
     public class UserConfig : IEntityTypeConfiguration<UserModel>
     {
